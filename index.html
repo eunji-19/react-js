@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    /**
+     * React State
+     */
+    // let counter = 0;
+
+    // function countUp() {
+    //   counter += 1;
+    //   render();
+    // }
+
+    // function render() {
+    //   ReactDOM.render(<App />, root);
+    // }
+
+    /**
+     *  Use React State
+     */
+    function App() {
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        // setCounter(counter + 1);
+        setCounter((current) => current + 1);
+      };
+      return (
+        <div>
+          <h4 style={{ color: "#F0A500" }}>Total Clicks: {counter}</h4>
+          <button
+            style={{
+              backgroundColor: "#396EB0",
+              color: "#ffffff",
+              border: "none",
+            }}
+            onClick={onClick}
+          >
+            Click Me
+          </button>
+        </div>
+      );
+      // render();
+    }
+
+    ReactDOM.render(<App />, root);
+
+    /**
+     * JSX 방식
+     */
+    // function Title() {
+    //   return (
+    //     <h4
+    //       id="title"
+    //       style={{ color: "#F0A500" }}
+    //       onMouseEnter={() => console.log("mouse enter")}
+    //     >
+    //       Hello Im title
+    //     </h4>
+    //   );
+    // }
+    // const Button = () => (
+    //   <button
+    //     style={{ backgroundColor: "#396EB0", color: "#ffffff", border: "none" }}
+    //     onClick={() => {
+    //       console.log("Im clicked");
+    //     }}
+    //   >
+    //     Click Me
+    //   </button>
+    // );
+
+    // const Container = () => (
+    //   <div>
+    //     <Title /> <Button />
+    //   </div>
+    // );
+    // ReactDOM.render(<Container />, root);
+    /*
+     * React 기초 방식
+     */
+    // const h4 = React.createElement(
+    //   "h4",
+    //   {
+    //     id: "react-span",
+    //     style: { color: "#F0A500" },
+    //     onMouseEnter: () => {
+    //       console.log("mouse enter");
+    //     },
+    //   },
+    //   "Hello Span"
+    // );
+    // const button = React.createElement(
+    //   "button",
+    //   {
+    //     style: {
+    //       backgroundColor: "#396EB0",
+    //       color: "#ffffff",
+    //       border: "none",
+    //     },
+    //     onClick: () => {
+    //       console.log("Im clicked");
+    //     },
+    //   },
+    //   "Click Me"
+    // );
+    // const container = React.createElement("div", null, [title, button]);
+    // ReactDOM.render(container, root);
+  </script>
+</html>
